@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% block container %}
+
+<h1><span > </span>Lista Tareas de : {{ lista.titulo_lista }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% csrf_token %}
+
+
+<br><br>
+<ul>
+
+ <br>
+ 
+{% for l in lista.tareas_set.all %}
+   <li>{{l.titulo_tarea }}</li><li>{{l.fecha_creacion_tarea }}</li><li>{{l.fecha_modificacion_tarea }}</li><li>{{l.descripcion_tarea }}</li><li>{{l.estado_tarea }}</li><li><a  href="/tareas/{{ l.id }}/modificar_tarea">modificar tarea</a> - 
+  <a  href="/tareas/{{ l.id }}/eliminar_tarea">eliminar tarea</a> - <a  href="/tareas/{{ l.id }}/pendiente_tarea">Marcar Tarea</a> </li>
+  <br>
+{% endfor %}
+</ul>
+
+{% endblock container %}

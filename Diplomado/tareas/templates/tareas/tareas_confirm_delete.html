@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block container %}
+ <h3 > Panel de Administracion</h3>
+<form action="" method="post">{% csrf_token %}
+
+    <p>Estas Seguro que Deseas Eliminar El resgistro "{{ object }}"?</p>
+
+
+ 
+     <input type="submit" value="Eliminar" class="btn btn-danger glyphicon glyphicon-remove" />
+                  
+</form>
+{% endblock container %}

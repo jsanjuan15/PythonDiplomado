@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block container %}
+    <h1>{{ algo }}</h1>
+    <h1>Lista</h1>
+<bR>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+   
+    {% if listado %}
+    <br><br>
+    <ul>
+
+     
+    {% for l in listado %}
+     <li><a href="/tareas/{{ l.id }}/">{{ l.titulo_lista }}</a></li><li>{{ l.fecha_lista}}</li><li><a href="/tareas/{{ l.id }}/modificar_lista">Modificar</a> <a  href="/tareas/{{ l.id }}/eliminar_lista">Eliminar</a></li>
+   <br>
+    {% endfor %}
+     </ul>
+    {% else %}
+        <p>No hay Listas Guardadas.</p>
+    {% endif %}
+{% endblock container %}
+

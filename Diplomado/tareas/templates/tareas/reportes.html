@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block container %}
+
+<h1><span > </span> Reportes </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% csrf_token %}
+
+
+<br><br>
+<table class="table table-hover table-bordered">
+<tr ><th>Titulo</th><th>Fecha Creacion</th><th>Fecha Modificacion</th><th>Descripcion</th><th>Estado</th></tr>
+
+{% for l in lista %}
+  <tr><td>{{l.titulo_tarea }}</td><td>{{l.fecha_creacion_tarea }}</td><td>{{l.fecha_modificacion_tarea }}</td><td>{{l.descripcion_tarea }}</td><td>{{l.estado_tarea }}</td></tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock container %}
